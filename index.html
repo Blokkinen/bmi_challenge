@@ -10,10 +10,9 @@
   <body><body style="background-color:powderblue;">
     <div>
     <h1>BMI Calculator</h1>
-    <p>Don't kill the messenger!</p>
-    <form>
-      <input type="radio" name="type" value="metric_bmi"> Metric
-      <input type="radio" name="type" value="imperial_bmi"> Imperial
+    <form id="unit">
+      <input type="radio" name="unit" id="metric" value="Metric">metric
+      <input type="radio" name="unit" id="imperial" value="Imperial">imperial
     </form>
     <br>
     <form>
@@ -31,9 +30,23 @@
       var w = parseFloat($('#weight').val());
       var h = parseFloat($('#height').val());
       var person = new Person({weight: w, height: h});
-      person.calculate_bmi();
+      var unit = 'metric';
+      var calculator = new BMIcalculator();
+      var checked = $('#unit input[type="radio"]:checked').val();
+      if (checked == "Metric") {
+        console.log ('calculate using metric');
+        calculator.metric_bmi(person);
+      } else if (checked == "Imperial") {
+        console.log ('calculate using imperial');
+        calculator.imperial_bmi(person)
+      } else {
+        alert("Please choose a unit!");
+      };
+
       $('#display_value').html('Your BMI is ' + person.bmiValue);
       $('#display_message').html('and you are '+ person.bmiMessage);
+
+
     });
   });
 </script>
