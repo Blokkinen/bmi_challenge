@@ -8,18 +8,22 @@
     <script src='https://code.jquery.com/jquery-2.1.4.js'></script>
   </head>
   <body><body style="background-color:powderblue;">
+    <div>
     <h1>BMI Calculator</h1>
     <p>Don't kill the messenger!</p>
-
+    <form>
+      <input type="radio" name="type" value="metric_bmi"> Metric
+      <input type="radio" name="type" value="imperial_bmi"> Imperial
+    </form>
+    <br>
     <form>
       <input type="text" id="weight" placeholder="Weight">
       <input type="text" id="height" placeholder="Height">
       <input type="button" id="calculate" value="Calculate">
     </form>
-    <div>
+
       <span id="display_value"></span>
       <span id="display_message"></span>
-
     </div>
     <script type="text/javascript">
   $(document).ready(function () {
@@ -33,5 +37,7 @@
     });
   });
 </script>
+<br>
+<br>
   </body>
 </html>
